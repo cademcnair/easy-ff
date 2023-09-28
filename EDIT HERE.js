@@ -17,9 +17,6 @@
 const BLOCKS = {
   if: {
     func: function (component, run_line_of_code, run_lines_of_code) {
-      console.log(component.top)
-      if (component.top.includes("1")) alert(get_var("hello"))
-      else set_var("hello", "world")
       if (run_line_of_code(component.top.replace("if", "")) === 1)
         run_lines_of_code(component.content)
     },
@@ -42,6 +39,6 @@ const OPERATORS = {
   }
 }
 
-// Functions to set and get vars
+// Functions to get and set vars
 const get_var = (v, address = false) => address ? vars[v] : vars[v][0]
 const set_var = (var_, value) => Array.isArray(value) ? vars[var_] = value : vars[var_] = [value]
